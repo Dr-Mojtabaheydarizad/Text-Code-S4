@@ -1,0 +1,223 @@
+## Text Code S4. "Simmr"code for cacluating the contribution rates of various air masses to the recharge of the surface water resources across Iran.
+## Stable Isotope Mixing Models in R with simmr.
+## Calculateing the contribution of various moisture sources in Iran main river discharge
+## Instal "install.packages('simmr')" at first
+  
+library(simmr)
+
+##Abolabas river
+mix = matrix(c(-4.65, -3.95, -4.73, -21.89, -15.72, -24.39, 15.31, 15.88, 13.45), ncol = 3, nrow = 3)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ 
+ end 
+ 
+ library(simmr)
+
+##Ghareh Aghaj river
+
+mix = matrix(c(-5.4, -4.52, -4.5, -4.39, -4.13, -4.78, -4.53, -5.92, -4.89, -22.4, -22.4, -21.07, -21.4, -19.6, -21.6, -21.0, -28.2, -22.3, 20.8, 13.76, 14.93, 13.72, 13.44, 16.64, 15.24, 19.16, 16.82), ncol = 3, nrow = 9)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ 
+ 
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ 
+end
+
+library(simmr)
+
+##Havasan river
+
+mix = matrix(c(-3.9, -3.37, -4.34, -4.3, -26.38, -23.83, -25, -27.65, 4.82, 3.14, 9.72, 6.75), ncol = 3, nrow = 4)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ 
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ 
+end
+
+library(simmr)
+
+##Kardeh river
+
+mix = matrix(c(-8.65, -5.93, -5.88, -8.72, -8.75, -6.8, -7.5, -56.84, -42.15, -45.84, -61.84, -61.68, -43.7, -48.2, 12.36, 5.29, 1.2, 7.92, 8.32, 10.7, 11.8), ncol = 3, nrow = 7)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ 
+end
+
+library(simmr)
+
+##Qotor river
+
+mix = matrix(c(-9.32, -11.54, -10.55, -67.4, -74.1, -68.7, 7.16, 18.22, 15.7), ncol = 3, nrow = 3)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ 
+end
+
+
+library(simmr)
+
+##Rudball river
+
+mix = matrix(c(-5.47, -5.25, -5.55, -5.59, -27.0, -25.5, -27.2, -27.1, 16.76, 16.5, 17.2, 17.62), ncol = 3, nrow = 4)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+
+ end
+
+library(simmr)
+
+##Khiyavchay river
+
+mix = matrix(c(-10.83, -11.4, -67.6, -73.1, 19.04, 18.1), ncol = 3, nrow = 2)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+end
+
+library(simmr)
+
+##Delichay river
+
+mix = matrix(c(-9.48, -9.48, -9.6, -9.14, -55.1, -55.8, -54.8, -54.2, 20.74, 20.04, 22.0, 18.92), ncol = 3, nrow = 4)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ 
+end
+
+library(simmr)
+
+##Talog river
+
+mix = matrix(c(-4.52, -5.36, -20.63, -23.76, 15.53, 19.12), ncol = 3, nrow = 2)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ end
+
+library(simmr)
+##Zayandeh river
+
+mix = matrix(c(-6.00, -5.70, -4.60, -2.10, -34.2, -30.3, -27.7, -18.6, 13.8, 15.3, 9.1, -1.8), ncol = 3, nrow = 4)
+colnames(mix) = c('d18O','d2H','d-excess')
+s_names = c("cP-airmass", "cT-airmass", "mP-airmass", "MedT-airmass")
+s_means = matrix(c(-3.5, -5.2, -6.6, -5.7, -20.8, -25.4, -19.2, -24.4, 7.3, 16.5, 18.5, 21.6), ncol = 3, nrow = 4)
+s_sds = matrix(c(3.0, 1.74, 4.51, 1.93, 25.42, 25.01, 24.38, 27.81, 8.60, 6.19, 6.40, 10.30), ncol = 3, nrow = 4)
+simmr_in = simmr_load(mixtures = mix,
+                     source_names = s_names,
+                     source_means = s_means,
+                     source_sds = s_sds)
+
+ simmr_out = simmr_mcmc(simmr_in)
+ summary(simmr_out, type = 'diagnostics')
+
+ summary(simmr_out, type = 'statistics')
+ summary(simmr_out, type = 'quantiles')
+ end
